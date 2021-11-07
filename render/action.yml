@@ -1,0 +1,17 @@
+name: 'Render Mermaid Diagrams'
+description: 'Render exported mermaid diagrams'
+inputs:
+  export:
+    description: 'The directory location of exported mermaid files'
+    required: false
+    default:  './.architecture/export/'
+  render:
+    description: 'The directory location of rendered architecture diagrams'
+    required: false
+    default:  './.architecture/diagrams/'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.export }}
+    - ${{ inputs.render }}
