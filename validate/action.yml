@@ -1,0 +1,12 @@
+name: 'Validate Structurizr DSL Model'
+description: 'Validate the Structurizr DSL model'
+inputs:
+  workspace:
+    description: 'Workspace DSL file location'
+    required: true
+    default: './.architecture/workspace.dsl'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.workspace }}
