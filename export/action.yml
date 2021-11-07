@@ -1,0 +1,17 @@
+name: 'Export DSL'
+description: 'Export workspace dsl file to mermaid'
+inputs:
+  workspace:
+    description: 'Workspace DSL file location'
+    required: true
+    default: './.architecture/workspace.dsl'
+  export:
+    description: 'The directory location to export files'
+    required: false
+    default:  './.architecture/export/'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.workspace }}
+    - ${{ inputs.export }}
